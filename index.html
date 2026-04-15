@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 
-<html lang="fr">
+<html lang="fr" style="background:#ffffff;">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light">
   <title>Soleilenterrasse · Partenaires</title>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -14,14 +15,15 @@
       --font: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', Arial, sans-serif;
       --font-d: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif;
     }
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; background: #ffffff; }
     body { font-family: var(--font); background: var(--bg); color: var(--text); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
 
 ```
 /* HERO */
 section.hero {
   padding: 72px 24px 64px;
-  text-align: center !important;
+  text-align: center;
+  background: #ffffff !important;
   background-color: #ffffff !important;
   border-bottom: 1px solid var(--divider);
   width: 100%;
@@ -47,9 +49,16 @@ section.hero {
   line-height: 1.6;
   text-align: center;
 }
+.hero-btn-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 10px;
+}
 .hero-cta {
   display: inline-block;
-  background: var(--text);
+  background: #1C1C1E;
   color: #ffffff;
   font-weight: 600;
   font-size: 15px;
@@ -59,7 +68,7 @@ section.hero {
   transition: opacity 0.2s;
 }
 .hero-cta:hover { opacity: 0.82; }
-.hero-note { margin-top: 10px; font-size: 12px; color: var(--text-3); text-align: center; }
+.hero-note { font-size: 12px; color: var(--text-3); text-align: center; }
 
 /* STATS */
 .stats { display: flex; justify-content: center; background-color: var(--sun-bg); border-bottom: 1px solid var(--divider); flex-wrap: wrap; }
@@ -116,7 +125,7 @@ section.hero {
 .mock-happy { font-size: 10px; font-weight: 500; color: var(--sun-mid); background: var(--sun-bg); border-radius: 7px; padding: 6px 9px; margin-bottom: 7px; }
 .mock-btns { display: flex; gap: 5px; }
 .mock-btn-s { flex: 1; padding: 6px; border-radius: 7px; font-size: 10px; font-weight: 600; text-align: center; border: none; }
-.mock-btn-s.dark { background: var(--text); color: #ffffff; }
+.mock-btn-s.dark { background: #1C1C1E; color: #ffffff; }
 .mock-btn-s.light { background: var(--sun-bg); color: var(--sun-mid); }
 .compare-note { font-size: 11px; color: var(--text-3); margin-top: 10px; line-height: 1.5; }
 .compare-note strong { color: var(--text-2); }
@@ -142,7 +151,9 @@ footer strong { color: var(--text); }
   <span class="hero-sun">☀️</span>
   <h1>Votre terrasse dans<br><em>Nos terrasses préférées</em></h1>
   <p>Quand quelqu'un cherche une terrasse au soleil, votre établissement apparaît en premier.</p>
-  <a href="https://www.instagram.com/soleilenterrasse" target="_blank" class="hero-cta">Devenir partenaire — 19,90€/mois</a>
+  <div class="hero-btn-wrap">
+    <a href="https://www.instagram.com/soleilenterrasse" target="_blank" class="hero-cta">Devenir partenaire — 19,90€/mois</a>
+  </div>
   <div class="hero-note">Sans engagement · Résiliation à tout moment</div>
 </section>
 
