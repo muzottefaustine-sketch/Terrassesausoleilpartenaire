@@ -173,6 +173,14 @@
 <footer>
   <strong>Soleilenterrasse</strong> · Bordeaux · <a href="https://soleil-bordeaux.vercel.app" style="color:#AEAEB2;text-decoration:none;">Voir l'app</a>
 </footer>
+<script>
+function setPricing(mode) {
+  document.querySelectorAll('.toggle-btn')[0].classList.toggle('active', mode === 'monthly');
+  document.querySelectorAll('.toggle-btn')[1].classList.toggle('active', mode === 'annual');
+  document.querySelector('.price-monthly').style.display = mode === 'monthly' ? 'block' : 'none';
+  document.querySelector('.price-annual').style.display  = mode === 'annual'  ? 'block' : 'none';
+}
+</script>
 
 </body>
 </html>
