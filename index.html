@@ -2,169 +2,230 @@
 
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Soleilenterrasse · Partenaires</title>
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif; background: #F2F2F7; color: #1C1C1E; }
-    .stats { display: flex; justify-content: center; background-color: #FFFBEE; border-bottom: 1px solid #E5E5EA; flex-wrap: wrap; }
-    .stat { flex: 1; min-width: 100px; max-width: 180px; text-align: center; padding: 22px 12px; }
-    .stat-num { font-size: 20px; font-weight: 700; }
-    .stat-label { font-size: 10px; color: #AEAEB2; text-transform: uppercase; letter-spacing: 0.4px; margin-top: 2px; }
-    .section { padding: 60px 24px; max-width: 820px; margin: 0 auto; }
-    .section-tag { font-size: 11px; font-weight: 600; color: #F5A623; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 8px; }
-    .section h2 { font-size: clamp(22px, 4vw, 34px); font-weight: 700; line-height: 1.2; margin-bottom: 10px; }
-    .section-sub { font-size: 15px; color: #6C6C70; line-height: 1.6; max-width: 440px; margin-bottom: 40px; }
-    .pricing-wrap { display: flex; justify-content: center; }
-    .pricing-card { border: 1px solid #E5E5EA; background: #ffffff; border-radius: 16px; padding: 36px 32px; max-width: 380px; width: 100%; text-align: center; }
-    .pricing-price { font-size: 48px; font-weight: 700; line-height: 1; }
-    .pricing-price span { font-size: 17px; font-weight: 400; color: #AEAEB2; }
-    .pricing-period { font-size: 13px; color: #AEAEB2; margin: 6px 0 24px; }
-    .pricing-list { list-style: none; text-align: left; margin-bottom: 24px; }
-    .pricing-list li { display: flex; align-items: flex-start; gap: 9px; font-size: 13px; color: #6C6C70; padding: 7px 0; border-bottom: 1px solid #E5E5EA; }
-    .pricing-list li:last-child { border-bottom: none; }
-    .pricing-list li::before { content: '✓'; color: #F5A623; font-weight: 700; flex-shrink: 0; }
-    .pricing-cta { display: block; background: #FFD600; color: #1C1C1E; font-weight: 600; font-size: 15px; padding: 14px 28px; border-radius: 50px; text-decoration: none; }
-    .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; }
-    .feature { background: #ffffff; border: 1px solid #E5E5EA; border-radius: 16px; padding: 20px; }
-    .feature-icon { font-size: 22px; margin-bottom: 10px; display: block; }
-    .feature h3 { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
-    .feature p { font-size: 12px; color: #6C6C70; line-height: 1.55; }
-    .compare { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-    @media (max-width: 540px) { .compare { grid-template-columns: 1fr; } }
-    .compare-card { border-radius: 16px; border: 1px solid #E5E5EA; background: #ffffff; overflow: hidden; }
-    .compare-card.paid { border-color: rgba(245,166,35,0.5); }
-    .compare-header { padding: 10px 14px; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.6px; border-bottom: 1px solid #E5E5EA; }
-    .compare-card.free .compare-header { color: #AEAEB2; background: #F2F2F7; }
-    .compare-card.paid .compare-header { color: #7A5800; background: #FFFBEE; }
-    .compare-body { padding: 14px; }
-    .list-label { font-size: 10px; font-weight: 600; color: #AEAEB2; text-transform: uppercase; letter-spacing: 0.7px; margin-bottom: 8px; }
-    .list-label.gold { color: #F5A623; }
-    .mock-row { display: flex; align-items: center; gap: 10px; padding: 9px 10px; border-radius: 11px; border: 1px solid #E5E5EA; margin-bottom: 7px; }
-    .mock-row.highlighted { border-color: rgba(245,166,35,0.4); background: #FFFBEE; }
-    .mock-dot { width: 30px; height: 30px; border-radius: 8px; background: #FFFBEE; display: flex; align-items: center; justify-content: center; font-size: 13px; flex-shrink: 0; }
-    .mock-dot.gold { background: #FFD600; }
-    .mock-row-name { font-size: 12px; font-weight: 600; display: flex; align-items: center; gap: 4px; flex-wrap: wrap; }
-    .mock-row-sub { font-size: 10px; color: #AEAEB2; margin-top: 1px; }
-    .mock-pill { font-size: 8px; font-weight: 700; background: #FFD600; color: #1C1C1E; padding: 2px 6px; border-radius: 20px; }
-    .mock-photo-clean { width: 100%; height: 96px; border-radius: 9px; margin: 8px 0; background: linear-gradient(150deg, #FFF8DC 0%, #FFE566 100%); display: flex; align-items: center; justify-content: center; }
-    .mock-photo-clean span { font-size: 11px; color: rgba(120,90,0,0.4); font-weight: 500; }
-    .mock-happy { font-size: 10px; font-weight: 500; color: #F5A623; background: #FFFBEE; border-radius: 7px; padding: 6px 9px; margin-bottom: 7px; }
-    .mock-btns { display: flex; gap: 5px; }
-    .mock-btn-s { flex: 1; padding: 6px; border-radius: 7px; font-size: 10px; font-weight: 600; text-align: center; border: none; }
-    .mock-btn-s.dark { background: #1C1C1E; color: #ffffff; }
-    .mock-btn-s.light { background: #FFFBEE; color: #F5A623; }
-    .compare-note { font-size: 11px; color: #AEAEB2; margin-top: 10px; line-height: 1.5; }
-    .compare-note strong { color: #6C6C70; }
-    .sep { height: 1px; background: #E5E5EA; max-width: 820px; margin: 0 auto; }
-    footer { text-align: center; padding: 24px; font-size: 11px; color: #AEAEB2; border-top: 1px solid #E5E5EA; }
-    footer strong { color: #1C1C1E; }
-  </style>
-  <meta property="og:title" content="Soleil en terrasse ☀️">
-<meta property="og:description" content="Trouve les terrasses au soleil en temps réel autour de toi.">
-<meta property="og:image" content="https://terrassesausoleilpartenaire.vercel.app">
-<meta property="og:url" content="https://terrassesausoleilpartenaire.vercel.app">
-<meta property="og:type" content="website">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Soleilenterrasse · Partenaires</title>
+
+  <meta property="og:title" content="Votre terrasse dans Nos terrasses préférées ☀️">
+  <meta property="og:description" content="Quand quelqu'un cherche une terrasse au soleil à Bordeaux, votre établissement apparaît en premier. Offre partenaire dès 19,90€/mois.">
+  <meta property="og:image" content="https://terrassesausoleilpartenaire.vercel.app/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:url" content="https://terrassesausoleilpartenaire.vercel.app">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Soleilenterrasse">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Votre terrasse dans Nos terrasses préférées ☀️">
+  <meta name="twitter:description" content="Offre partenaire 19,90€/mois ou 220€/an · Bordeaux">
+  <meta name="twitter:image" content="https://terrassesausoleilpartenaire.vercel.app/og-image.png">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif; background: #F2F2F7; color: #1C1C1E; }
+
+    .stats { display: flex; justify-content: center; background-color: #FFFBEE; border-bottom: 1px solid #E5E5EA; flex-wrap: wrap; }
+    .stat { flex: 1; min-width: 100px; max-width: 180px; text-align: center; padding: 22px 12px; }
+    .stat-num { font-size: 20px; font-weight: 700; }
+    .stat-label { font-size: 10px; color: #AEAEB2; text-transform: uppercase; letter-spacing: 0.4px; margin-top: 2px; }
+
+    .section { padding: 60px 24px; max-width: 820px; margin: 0 auto; }
+    .section-tag { font-size: 11px; font-weight: 600; color: #F5A623; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 8px; }
+    .section h2 { font-size: clamp(22px, 4vw, 34px); font-weight: 700; line-height: 1.2; margin-bottom: 10px; }
+    .section-sub { font-size: 15px; color: #6C6C70; line-height: 1.6; max-width: 440px; margin-bottom: 40px; }
+
+    .pricing-toggle { display: flex; justify-content: center; margin-bottom: 28px; }
+    .toggle-wrap { display: flex; background: #E5E5EA; border-radius: 50px; padding: 3px; gap: 2px; }
+    .toggle-btn { padding: 8px 22px; border-radius: 50px; border: none; font-size: 14px; font-weight: 600; cursor: pointer; transition: all 0.18s; background: transparent; color: #6C6C70; }
+    .toggle-btn.active { background: #ffffff; color: #1C1C1E; box-shadow: 0 1px 6px rgba(0,0,0,0.1); }
+
+    .pricing-wrap { display: flex; justify-content: center; }
+    .pricing-card { border: 1px solid #E5E5EA; background: #ffffff; border-radius: 16px; padding: 36px 32px; max-width: 380px; width: 100%; text-align: center; }
+    .price-monthly { display: block; }
+    .price-annual  { display: none; }
+    .pricing-price { font-size: 48px; font-weight: 700; line-height: 1; }
+    .pricing-price span { font-size: 17px; font-weight: 400; color: #AEAEB2; }
+    .pricing-period { font-size: 13px; color: #AEAEB2; margin: 6px 0 24px; }
+
+    .pricing-list { list-style: none; text-align: left; margin-bottom: 24px; }
+    .pricing-list li { display: flex; align-items: flex-start; gap: 9px; font-size: 13px; color: #6C6C70; padding: 7px 0; border-bottom: 1px solid #E5E5EA; }
+    .pricing-list li:last-child { border-bottom: none; }
+    .pricing-list li::before { content: '✓'; color: #F5A623; font-weight: 700; flex-shrink: 0; }
+    .pricing-cta { display: block; background: #FFD600; color: #1C1C1E; font-weight: 600; font-size: 15px; padding: 14px 28px; border-radius: 50px; text-decoration: none; }
+
+    .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; }
+    .feature { background: #ffffff; border: 1px solid #E5E5EA; border-radius: 16px; padding: 20px; }
+    .feature-icon { font-size: 22px; margin-bottom: 10px; display: block; }
+    .feature h3 { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
+    .feature p { font-size: 12px; color: #6C6C70; line-height: 1.55; }
+
+    .compare { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    @media (max-width: 540px) { .compare { grid-template-columns: 1fr; } }
+    .compare-card { border-radius: 16px; border: 1px solid #E5E5EA; background: #ffffff; overflow: hidden; }
+    .compare-card.paid { border-color: rgba(245,166,35,0.5); }
+    .compare-header { padding: 10px 14px; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.6px; border-bottom: 1px solid #E5E5EA; }
+    .compare-card.free .compare-header { color: #AEAEB2; background: #F2F2F7; }
+    .compare-card.paid .compare-header { color: #7A5800; background: #FFFBEE; }
+    .compare-body { padding: 14px; }
+    .list-label { font-size: 10px; font-weight: 600; color: #AEAEB2; text-transform: uppercase; letter-spacing: 0.7px; margin-bottom: 8px; }
+    .list-label.gold { color: #F5A623; }
+    .mock-row { display: flex; align-items: center; gap: 10px; padding: 9px 10px; border-radius: 11px; border: 1px solid #E5E5EA; margin-bottom: 7px; }
+    .mock-row.highlighted { border-color: rgba(245,166,35,0.4); background: #FFFBEE; }
+    .mock-dot { width: 30px; height: 30px; border-radius: 8px; background: #FFFBEE; display: flex; align-items: center; justify-content: center; font-size: 13px; flex-shrink: 0; }
+    .mock-dot.gold { background: #FFD600; }
+    .mock-row-name { font-size: 12px; font-weight: 600; display: flex; align-items: center; gap: 4px; flex-wrap: wrap; }
+    .mock-row-sub { font-size: 10px; color: #AEAEB2; margin-top: 1px; }
+    .mock-pill { font-size: 8px; font-weight: 700; background: #FFD600; color: #1C1C1E; padding: 2px 6px; border-radius: 20px; }
+    .mock-photo-clean { width: 100%; height: 96px; border-radius: 9px; margin: 8px 0; background: linear-gradient(150deg, #FFF8DC 0%, #FFE566 100%); display: flex; align-items: center; justify-content: center; }
+    .mock-photo-clean span { font-size: 11px; color: rgba(120,90,0,0.4); font-weight: 500; }
+    .mock-happy { font-size: 10px; font-weight: 500; color: #F5A623; background: #FFFBEE; border-radius: 7px; padding: 6px 9px; margin-bottom: 7px; }
+    .mock-btns { display: flex; gap: 5px; }
+    .mock-btn-s { flex: 1; padding: 6px; border-radius: 7px; font-size: 10px; font-weight: 600; text-align: center; border: none; }
+    .mock-btn-s.dark { background: #1C1C1E; color: #ffffff; }
+    .mock-btn-s.light { background: #FFFBEE; color: #F5A623; }
+    .compare-note { font-size: 11px; color: #AEAEB2; margin-top: 10px; line-height: 1.5; }
+    .compare-note strong { color: #6C6C70; }
+
+    .sep { height: 1px; background: #E5E5EA; max-width: 820px; margin: 0 auto; }
+    footer { text-align: center; padding: 24px; font-size: 11px; color: #AEAEB2; border-top: 1px solid #E5E5EA; }
+    footer strong { color: #1C1C1E; }
+  </style>
+
 </head>
 <body>
 
-<!-- HERO avec tout en inline -->
+<!-- HERO -->
 
 <div style="padding:72px 24px 64px; text-align:center; background-color:#ffffff; border-bottom:1px solid #E5E5EA; width:100%;">
-  <div style="font-size:48px; margin-bottom:18px;">☀️</div>
-  <h1 style="font-size:clamp(28px,5vw,48px); font-weight:700; line-height:1.15; max-width:520px; margin:0 auto 14px; text-align:center;">Votre terrasse dans<br><span style="color:#F5A623;">Nos terrasses préférées</span></h1>
-  <p style="font-size:17px; color:#6C6C70; max-width:400px; margin:0 auto 32px; line-height:1.6; text-align:center;">Quand quelqu'un cherche une terrasse au soleil, votre établissement apparaît en premier.</p>
-  <div style="text-align:center;">
-    <a href="https://www.instagram.com/soleilenterrasse" target="_blank" style="display:inline-block; background:#1C1C1E; color:#ffffff; font-weight:600; font-size:15px; padding:14px 32px; border-radius:50px; text-decoration:none;">Devenir partenaire — 19,90€/mois</a>
-  </div>
-  <div style="margin-top:10px; font-size:12px; color:#AEAEB2; text-align:center;">Sans engagement · Résiliation à tout moment</div>
+  <div style="font-size:48px; margin-bottom:18px;">☀️</div>
+  <h1 style="font-size:clamp(28px,5vw,48px); font-weight:700; line-height:1.15; max-width:520px; margin:0 auto 14px; text-align:center;">Votre terrasse dans<br><span style="color:#F5A623;">Nos terrasses préférées</span></h1>
+  <p style="font-size:17px; color:#6C6C70; max-width:400px; margin:0 auto 32px; line-height:1.6; text-align:center;">Quand quelqu'un cherche une terrasse au soleil, votre établissement apparaît en premier.</p>
+  <div style="text-align:center;">
+    <a href="https://www.instagram.com/soleilenterrasse" target="_blank" style="display:inline-block; background:#1C1C1E; color:#ffffff; font-weight:600; font-size:15px; padding:14px 32px; border-radius:50px; text-decoration:none;">Devenir partenaire — 19,90€/mois</a>
+  </div>
+  <div style="margin-top:10px; font-size:12px; color:#AEAEB2; text-align:center;">Sans engagement · Résiliation à tout moment</div>
 </div>
+
+<!-- STATS -->
 
 <div class="stats">
-  <div class="stat"><div class="stat-num">+400</div><div class="stat-label">Téléchargements en 48h</div></div>
-  <div class="stat"><div class="stat-num">Top 107</div><div class="stat-label">App Store Navigation</div></div>
-  <div class="stat"><div class="stat-num">Bordeaux</div><div class="stat-label">& bientôt partout</div></div>
-  <div class="stat"><div class="stat-num">Temps réel</div><div class="stat-label">Ombres 3D</div></div>
+  <div class="stat"><div class="stat-num">+400</div><div class="stat-label">Téléchargements en 48h</div></div>
+  <div class="stat"><div class="stat-num">Top 107</div><div class="stat-label">App Store Navigation</div></div>
+  <div class="stat"><div class="stat-num">Bordeaux</div><div class="stat-label">& bientôt partout</div></div>
+  <div class="stat"><div class="stat-num">Temps réel</div><div class="stat-label">Ombres 3D</div></div>
 </div>
 
+<!-- TARIF -->
+
 <div class="section">
-  <div class="section-tag">Tarif</div>
-  <h2>Simple et sans surprise</h2>
-  <p class="section-sub">Un seul tarif, tout inclus, sans engagement.</p>
-  <div class="pricing-wrap">
-    <div class="pricing-card">
-      <div class="pricing-price">19<span>,90€</span></div>
-      <div class="pricing-period">par mois · sans engagement</div>
-      <ul class="pricing-list">
-        <li>Section "Nos terrasses préférées" ⭐</li>
-        <li>Photo de votre terrasse</li>
-        <li>Happy Hours en temps réel</li>
-        <li>Bouton appel & itinéraire</li>
-        <li>Mise en avant dans la liste</li>
-        <li>Statistiques hebdomadaires</li>
-        <li>Résiliation à tout moment</li>
-      </ul>
-      <a href="https://www.instagram.com/soleilenterrasse" target="_blank" class="pricing-cta">Nous contacter sur Instagram →</a>
-    </div>
-  </div>
+  <div class="section-tag">Tarif</div>
+  <h2>Simple et sans surprise</h2>
+  <p class="section-sub">Un seul tarif, tout inclus. Mensuel ou annuel — au choix.</p>
+
+  <div class="pricing-toggle">
+    <div class="toggle-wrap">
+      <button class="toggle-btn active" onclick="setPricing('monthly')">Mensuel</button>
+      <button class="toggle-btn" onclick="setPricing('annual')">Annuel</button>
+    </div>
+  </div>
+
+  <div class="pricing-wrap">
+    <div class="pricing-card">
+
+```
+  <div class="price-monthly">
+    <div class="pricing-price">19<span>,90€</span></div>
+    <div class="pricing-period">par mois · sans engagement</div>
+  </div>
+
+  <div class="price-annual">
+    <div class="pricing-price">220<span>€</span></div>
+    <div class="pricing-period">par an · soit 18,33€/mois</div>
+  </div>
+
+  <ul class="pricing-list">
+    <li>Section "Nos terrasses préférées" ⭐</li>
+    <li>Photo de votre terrasse</li>
+    <li>Happy Hours en temps réel</li>
+    <li>Bouton appel & itinéraire</li>
+    <li>Mise en avant dans la liste</li>
+    <li>Statistiques hebdomadaires</li>
+    <li>Résiliation à tout moment</li>
+  </ul>
+  <a href="https://www.instagram.com/soleilenterrasse" target="_blank" class="pricing-cta">Nous contacter sur Instagram →</a>
+</div>
+```
+
+  </div>
 </div>
 
 <div class="sep"></div>
 
+<!-- FEATURES -->
+
 <div class="section">
-  <div class="section-tag">Ce qui est inclus</div>
-  <h2>L'offre partenaire</h2>
-  <p class="section-sub">Tout pour être visible au bon moment — pour 19,90€/mois.</p>
-  <div class="features">
-    <div class="feature"><span class="feature-icon">⭐</span><h3>Nos terrasses préférées</h3><p>Section exclusive en haut de liste, visible par tous.</p></div>
-    <div class="feature"><span class="feature-icon">📸</span><h3>Photo de votre terrasse</h3><p>Une photo affichée directement dans la liste.</p></div>
-    <div class="feature"><span class="feature-icon">🍺</span><h3>Happy Hours</h3><p>Vos offres affichées en temps réel dans l'app.</p></div>
-    <div class="feature"><span class="feature-icon">📞</span><h3>Appel & itinéraire</h3><p>Un bouton pour appeler ou naviguer en un tap.</p></div>
-    <div class="feature"><span class="feature-icon">🔝</span><h3>Mise en avant</h3><p>Priorité dans les résultats quand vous êtes au soleil.</p></div>
-    <div class="feature"><span class="feature-icon">📊</span><h3>Statistiques</h3><p>Vues et clics sur votre fiche chaque semaine.</p></div>
-  </div>
+  <div class="section-tag">Ce qui est inclus</div>
+  <h2>L'offre partenaire</h2>
+  <p class="section-sub">Tout pour être visible au bon moment — pour 19,90€/mois.</p>
+  <div class="features">
+    <div class="feature"><span class="feature-icon">⭐</span><h3>Nos terrasses préférées</h3><p>Section exclusive en haut de liste, visible par tous.</p></div>
+    <div class="feature"><span class="feature-icon">📸</span><h3>Photo de votre terrasse</h3><p>Une photo affichée directement dans la liste.</p></div>
+    <div class="feature"><span class="feature-icon">🍺</span><h3>Happy Hours</h3><p>Vos offres affichées en temps réel dans l'app.</p></div>
+    <div class="feature"><span class="feature-icon">📞</span><h3>Appel & itinéraire</h3><p>Un bouton pour appeler ou naviguer en un tap.</p></div>
+    <div class="feature"><span class="feature-icon">🔝</span><h3>Mise en avant</h3><p>Priorité dans les résultats quand vous êtes au soleil.</p></div>
+    <div class="feature"><span class="feature-icon">📊</span><h3>Statistiques</h3><p>Vues et clics sur votre fiche chaque semaine.</p></div>
+  </div>
 </div>
 
 <div class="sep"></div>
 
+<!-- COMPARAISON -->
+
 <div class="section">
-  <div class="section-tag">Comparaison</div>
-  <h2>Avant et après</h2>
-  <p class="section-sub">Sans abonnement votre terrasse est déjà là. Avec l'offre partenaire, vous intégrez <strong>Nos terrasses préférées ☀️</strong> — en tête de liste.</p>
-  <div class="compare">
-    <div class="compare-card free">
-      <div class="compare-header">Gratuit</div>
-      <div class="compare-body">
-        <div class="list-label">Résultats</div>
-        <div class="mock-row"><div class="mock-dot">☀️</div><div><div class="mock-row-name">Le Café du Coin</div><div class="mock-row-sub">Bar · Rue des Fleurs</div></div></div>
-        <div class="mock-row"><div class="mock-dot">☀️</div><div><div class="mock-row-name">Chez Marcel</div><div class="mock-row-sub">Restaurant · Rue Saint-James</div></div></div>
-        <div class="compare-note">Nom, type, adresse. Noyé dans la liste.</div>
-      </div>
-    </div>
-    <div class="compare-card paid">
-      <div class="compare-header">☀️ Nos terrasses préférées</div>
-      <div class="compare-body">
-        <div class="list-label gold">⭐ Nos terrasses préférées</div>
-        <div class="mock-row highlighted">
-          <div class="mock-dot gold">⭐</div>
-          <div><div class="mock-row-name">Le Café du Coin <span class="mock-pill">⭐ Préférée</span></div><div class="mock-row-sub">Bar · Rue des Fleurs</div></div>
-        </div>
-        <div class="mock-photo-clean"><span>Photo de votre terrasse</span></div>
-        <div class="mock-happy">🍺 Happy Hour · 17h–19h — Pinte à 4€</div>
-        <div class="mock-btns">
-          <div class="mock-btn-s dark">📞 Appeler</div>
-          <div class="mock-btn-s light">🗺 Y aller</div>
-        </div>
-        <div class="compare-note" style="margin-top:9px;"><strong>En tête de liste, photo, happy hours, contact direct.</strong></div>
-      </div>
-    </div>
-  </div>
+  <div class="section-tag">Comparaison</div>
+  <h2>Avant et après</h2>
+  <p class="section-sub">Sans abonnement votre terrasse est déjà là. Avec l'offre partenaire, vous intégrez <strong>Nos terrasses préférées ☀️</strong> — en tête de liste.</p>
+  <div class="compare">
+    <div class="compare-card free">
+      <div class="compare-header">Gratuit</div>
+      <div class="compare-body">
+        <div class="list-label">Résultats</div>
+        <div class="mock-row"><div class="mock-dot">☀️</div><div><div class="mock-row-name">Le Café du Coin</div><div class="mock-row-sub">Bar · Rue des Fleurs</div></div></div>
+        <div class="mock-row"><div class="mock-dot">☀️</div><div><div class="mock-row-name">Chez Marcel</div><div class="mock-row-sub">Restaurant · Rue Saint-James</div></div></div>
+        <div class="compare-note">Nom, type, adresse. Noyé dans la liste.</div>
+      </div>
+    </div>
+    <div class="compare-card paid">
+      <div class="compare-header">☀️ Nos terrasses préférées</div>
+      <div class="compare-body">
+        <div class="list-label gold">⭐ Nos terrasses préférées</div>
+        <div class="mock-row highlighted">
+          <div class="mock-dot gold">⭐</div>
+          <div><div class="mock-row-name">Le Café du Coin <span class="mock-pill">⭐ Préférée</span></div><div class="mock-row-sub">Bar · Rue des Fleurs</div></div>
+        </div>
+        <div class="mock-photo-clean"><span>Photo de votre terrasse</span></div>
+        <div class="mock-happy">🍺 Happy Hour · 17h–19h — Pinte à 4€</div>
+        <div class="mock-btns">
+          <div class="mock-btn-s dark">📞 Appeler</div>
+          <div class="mock-btn-s light">🗺 Y aller</div>
+        </div>
+        <div class="compare-note" style="margin-top:9px;"><strong>En tête de liste, photo, happy hours, contact direct.</strong></div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <footer>
-  <strong>Soleilenterrasse</strong> · Bordeaux · <a href="https://soleil-bordeaux.vercel.app" style="color:#AEAEB2;text-decoration:none;">Voir l'app</a>
+  <strong>Soleilenterrasse</strong> · Bordeaux · <a href="https://soleil-bordeaux.vercel.app" style="color:#AEAEB2;text-decoration:none;">Voir l'app</a>
 </footer>
+
+<script>
+function setPricing(mode) {
+  document.querySelectorAll('.toggle-btn')[0].classList.toggle('active', mode === 'monthly');
+  document.querySelectorAll('.toggle-btn')[1].classList.toggle('active', mode === 'annual');
+  document.querySelector('.price-monthly').style.display = mode === 'monthly' ? 'block' : 'none';
+  document.querySelector('.price-annual').style.display  = mode === 'annual'  ? 'block' : 'none';
+}
+</script>
 
 </body>
 </html>
