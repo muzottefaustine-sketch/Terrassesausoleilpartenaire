@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Soleilenterrasse · Partenaires</title>
 
-  <meta property="og:title" content="Votre restaurant recommandé quand on cherche une terrasse au soleil à Bordeaux ☀️">
+  <meta property="og:title" content="Votre restaurant recommandé quand les clients cherchent une terrasse au soleil à Bordeaux ☀️">
   <meta property="og:description" content="Rejoignez les restaurants mis en avant quand les clients cherchent une terrasse au soleil à Bordeaux. Offre partenaire dès 19,90€/mois.">
   <meta property="og:image" content="https://terrassesausoleilpartenaire.vercel.app/og-image.png">
   <meta property="og:image:width" content="1200">
@@ -35,6 +35,36 @@
     .section h2 { font-size:clamp(22px,4vw,34px); font-weight:700; margin-bottom:10px; }
     .section-sub { font-size:15px; color:#6C6C70; line-height:1.6; margin-bottom:30px; }
 
+    /* HERO APP MOCK */
+    .app-mock { max-width:260px; margin:0 auto 20px; background:#fff; border:1px solid #E5E5EA; border-radius:28px; padding:14px; }
+    .app-screen { background:#FFFBEE; border-radius:20px; height:220px; padding:12px; text-align:left; }
+    .app-item { background:#fff; border:1px solid #E5E5EA; border-radius:12px; padding:10px; margin-bottom:8px; font-size:11px; }
+    .app-item strong { font-size:12px; }
+
+    /* PROOF RESTAURANTS */
+    .grid-2 { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+    @media(max-width:800px){ .grid-2{ grid-template-columns:1fr; } }
+
+    .card { background:#fff; border:1px solid #E5E5EA; border-radius:16px; padding:18px; }
+    .mock-row { display:flex; gap:10px; align-items:center; padding:10px; border-radius:10px; border:1px solid #E5E5EA; margin-bottom:8px; }
+    .mock-row.highlight { background:#FFFBEE; border-color:#F5A62355; }
+    .dot { width:28px; height:28px; border-radius:8px; background:#FFD600; display:flex; align-items:center; justify-content:center; font-size:12px; }
+    .name { font-size:12px; font-weight:600; }
+    .sub { font-size:10px; color:#AEAEB2; }
+    .badge { font-size:9px; background:#FFD600; padding:2px 6px; border-radius:20px; font-weight:700; }
+
+    /* RESTO CARDS REALISM */
+    .resto-list { display:flex; flex-direction:column; gap:10px; }
+    .resto { background:#Fff; border:1px solid #E5E5EA; border-radius:14px; padding:12px; }
+    .resto strong { font-size:13px; }
+    .resto small { color:#6C6C70; display:block; margin-top:2px; font-size:11px; }
+
+    .proof { font-size:12px; color:#6C6C70; line-height:1.5; }
+    .proof strong { color:#1C1C1E; }
+
+    .scarcity { text-align:center; font-size:13px; color:#6C6C70; margin-top:10px; }
+    .scarcity strong { color:#1C1C1E; }
+
     /* PRICING */
     .pricing-toggle { display:flex; justify-content:center; margin-bottom:20px; }
     .toggle-wrap { display:flex; background:#E5E5EA; border-radius:50px; padding:3px; }
@@ -61,9 +91,17 @@
 <div class="hero">
   <div style="font-size:48px;margin-bottom:18px;">☀️</div>
 
+  <div class="app-mock">
+    <div class="app-screen">
+      <div class="app-item"><strong>⭐ Le Café du Coin</strong><br>Mis en avant</div>
+      <div class="app-item">☀️ Chez Marcel</div>
+      <div class="app-item">☀️ La Terrasse Bleue</div>
+    </div>
+  </div>
+
   <h1>Votre restaurant recommandé<br><span style="color:#F5A623;">quand les clients cherchent une terrasse au soleil</span></h1>
 
-  <p>À Bordeaux, les clients découvrent les restaurants au bon moment : quand ils veulent profiter d’une terrasse.</p>
+  <p>Les clients découvrent les restaurants au moment où ils choisissent où aller boire ou manger en terrasse à Bordeaux.</p>
 
   <form class="cta-form">
     <input type="text" placeholder="Nom du restaurant" required>
@@ -77,14 +115,57 @@
 <div class="stats">
   <div class="stat"><div class="stat-num">Bordeaux</div><div class="stat-label">Zone active</div></div>
   <div class="stat"><div class="stat-num">Temps réel</div><div class="stat-label">Recherche de soleil</div></div>
-  <div class="stat"><div class="stat-num">Visibilité</div><div class="stat-label">Quand on décide de sortir</div></div>
+  <div class="stat"><div class="stat-num">Décision</div><div class="stat-label">Moment critique</div></div>
+</div>
+
+<!-- PROOF RESTAURANTS -->
+<div class="section">
+  <div class="section-tag">Restaurants visibles</div>
+  <h2>Exemples de visibilité</h2>
+  <p class="section-sub">Voici comment les restaurants apparaissent actuellement dans l’application.</p>
+
+  <div class="grid-2">
+
+    <div class="card">
+      <div class="mock-row highlight">
+        <div class="dot">⭐</div>
+        <div>
+          <div class="name">Le Café du Coin <span class="badge">mis en avant</span></div>
+          <div class="sub">Bar · Terrasse ensoleillée</div>
+        </div>
+      </div>
+
+      <div class="mock-row">
+        <div class="dot">☀️</div>
+        <div>
+          <div class="name">Chez Marcel</div>
+          <div class="sub">Restaurant · Centre-ville</div>
+        </div>
+      </div>
+
+      <div class="proof"><strong>Les établissements partenaires apparaissent en priorité</strong> dans les recommandations locales.</div>
+    </div>
+
+    <div class="card">
+      <h3>🍽 Restaurants déjà similaires à Bordeaux</h3>
+
+      <div class="resto-list">
+        <div class="resto"><strong>Le Bistrot Saint-Pierre</strong><small>Terrasse · Centre historique</small></div>
+        <div class="resto"><strong>La Maison du Soleil</strong><small>Bar · Quais de Bordeaux</small></div>
+        <div class="resto"><strong>Brasserie Gambetta</strong><small>Restaurant · Gambetta</small></div>
+      </div>
+
+      <div class="scarcity">⚠️ <strong>Places partenaires limitées par ville</strong></div>
+    </div>
+
+  </div>
 </div>
 
 <!-- PRICING -->
 <div class="section">
   <div class="section-tag">Offre partenaire</div>
-  <h2>Plus de visibilité quand les clients choisissent où aller</h2>
-  <p class="section-sub">Votre restaurant apparaît dans les recommandations de terrasses au soleil à Bordeaux.</p>
+  <h2>Visibilité simple et locale</h2>
+  <p class="section-sub">Un seul abonnement pour apparaître dans les recommandations de terrasses au soleil à Bordeaux.</p>
 
   <div class="pricing-toggle">
     <div class="toggle-wrap">
@@ -108,7 +189,7 @@
     <ul class="pricing-list">
       <li>⭐ Mise en avant dans les recommandations</li>
       <li>📸 Photo de votre terrasse</li>
-      <li>🍺 Happy hours visibles en temps réel</li>
+      <li>🍺 Happy hours visibles</li>
       <li>📞 Appel & itinéraire direct</li>
       <li>🔝 Priorité dans votre zone</li>
     </ul>
