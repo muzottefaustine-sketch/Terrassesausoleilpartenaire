@@ -14,10 +14,11 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif; background: #F2F2F7; color: #1C1C1E; }
-    .stats { display: flex; justify-content: center; background-color: #FFFBEE; border-bottom: 1px solid #E5E5EA; flex-wrap: wrap; }
-    .stat { flex: 1; min-width: 100px; max-width: 180px; text-align: center; padding: 22px 12px; }
+    .stats { display: grid; grid-template-columns: repeat(4, minmax(0, 210px)); justify-content: center; gap: 12px; padding: 12px 24px; background-color: #FFFBEE; border-bottom: 1px solid #E5E5EA; }
+    .stat { min-width: 0; text-align: center; padding: 16px 8px; }
     .stat-num { font-size: 20px; font-weight: 700; }
-    .stat-label { font-size: 10px; color: #AEAEB2; text-transform: uppercase; letter-spacing: 0.4px; margin-top: 2px; }
+    .stat-label { font-size: 11px; color: #6C6C70; text-transform: uppercase; letter-spacing: 0.3px; margin-top: 6px; line-height: 1.6; overflow-wrap: anywhere; }
+    @media (max-width: 680px) { .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 16px; padding: 16px; } }
     .section { padding: 60px 24px; max-width: 820px; margin: 0 auto; }
     .section-tag { font-size: 11px; font-weight: 600; color: #F5A623; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 8px; }
     .section h2 { font-size: clamp(22px, 4vw, 34px); font-weight: 700; line-height: 1.2; margin-bottom: 10px; }
@@ -99,18 +100,18 @@
 <div style="padding:72px 24px 64px; text-align:center; background-color:#ffffff; border-bottom:1px solid #E5E5EA; width:100%;">
   <div style="font-size:48px; margin-bottom:18px;">☀️</div>
   <h1 style="font-size:clamp(28px,5vw,48px); font-weight:700; line-height:1.15; max-width:520px; margin:0 auto 14px; text-align:center;">Votre prochaine réservation<br><span style="color:#F5A623;">commence ici.</span></h1>
-  <p style="font-size:17px; color:#6C6C70; max-width:400px; margin:0 auto 32px; line-height:1.6; text-align:center;">Faites de votre restaurant une adresse que l’on remarque. Rejoignez Nos terrasses préférées : mettez en valeur votre terrasse, partagez vos événements et permettez aux clients de réserver dès qu’ils vous découvrent.</p>
+  <p style="font-size:17px; color:#6C6C70; max-width:400px; margin:0 auto 32px; line-height:1.6; text-align:center;">Valorisez votre établissement auprès de nouveaux clients. Rejoignez « Nos terrasses préférées » : mettez en avant votre terrasse, partagez vos événements et permettez aux clients de réserver directement depuis l’application.</p>
   <div style="text-align:center;">
-    <a href="#tarif" style="display:inline-block; background:#1C1C1E; color:#ffffff; font-weight:600; font-size:15px; padding:14px 32px; border-radius:50px; text-decoration:none;">Mettre mon restaurant en avant →</a>
+    <a href="#tarif" style="display:inline-block; background:#1C1C1E; color:#ffffff; font-weight:600; font-size:15px; padding:14px 32px; border-radius:50px; text-decoration:none;">Référencer mon établissement →</a>
   </div>
-  <p style="margin-top:12px; font-size:13px; color:#6C6C70;">Dès 19,90 €/mois · Découvrez les formules partenaire.</p>
+  <p style="margin-top:12px; font-size:13px; color:#6C6C70;">À partir de 19,90 €/mois · Découvrez nos formules partenaires.</p>
 </div>
 
 <div class="stats">
   <div class="stat"><div class="stat-num">15 000+</div><div class="stat-label">Téléchargements</div></div>
-  <div class="stat"><div class="stat-num">Top 17</div><div class="stat-label">Classement atteint<br>App Store · Navigation</div></div>
+  <div class="stat"><div class="stat-num">Top 17</div><div class="stat-label">Meilleur classement App Store<br>Catégorie Navigation</div></div>
   <div class="stat"><div class="stat-num">Bordeaux</div></div>
-  <div class="stat"><div class="stat-num">Temps réel</div><div class="stat-label">Ombres 3D</div></div>
+  <div class="stat"><div class="stat-num">Ombres 3D</div><div class="stat-label">En temps réel</div></div>
 </div>
 
 <section style="max-width:700px;margin:0 auto;padding:28px 24px 0;text-align:center;" aria-label="Découvrez la vue 3D de Soleilenterrasse">
@@ -143,27 +144,27 @@
         </div>
         <figure class="restaurant-photo"><img src="https://www.lapointe-bordeaux.fr/wp-content/uploads/2022/10/la-pointe-le-restaurant-1.jpg" alt="Le restaurant La Pointe à Bordeaux" loading="lazy"><figcaption>La Pointe · Bordeaux — photo du restaurant</figcaption></figure>
         <p class="compare-note">Exemples d’informations à renseigner selon votre établissement :</p><div class="comfort-tags"><span>☀️ Soleil</span><span>🌳 Ombre</span><span>❄️ Climatisation</span></div>
-        <div class="mock-happy">📅 Vos événements à venir</div><p class="compare-note" style="margin:0 0 10px;">Exemples : brunch du dimanche · concert · soirée à thème. Vos dates et offres actualisées sur votre fiche.</p>
+        <div class="mock-happy">📅 Vos événements à venir</div><p class="compare-note" style="margin:0 0 10px;">Exemples : brunch dominical, concert, soirée à thème. Vos dates et offres sont mises à jour sur votre fiche.</p>
         <div class="mock-reserve">📅 Réserver une table</div>
         <div class="mock-btns">
           <div class="mock-btn-s dark">📞 Appeler</div>
-          <div class="mock-btn-s light">🗺 Y aller</div>
+          <div class="mock-btn-s light">🗺 Itinéraire</div>
         </div>
-        <div class="compare-note" style="margin-top:9px;"><strong>Découvrir votre restaurant, choisir le bon cadre et réserver depuis l’app.</strong></div>
+        <div class="compare-note" style="margin-top:9px;"><strong>Les clients découvrent votre établissement, choisissent leur cadre et réservent depuis l’application.</strong></div>
       </div>
     </div>
   </div>
 </div>
 
 <div class="section">
-  <div class="section-tag">Ce qui est inclus</div>
+  <div class="section-tag">Inclus dans l’offre</div>
   <h2>L'offre partenaire</h2>
-  <p class="section-sub">Plus de visibilité, une réservation facile et vos atouts mis en valeur : tout pour aider de nouveaux clients à choisir votre établissement, pour 19,90€/mois.</p>
+  <p class="section-sub">Visibilité accrue, réservation simplifiée, atouts mis en valeur : tout pour attirer de nouveaux clients, pour 19,90 €/mois.</p>
   <div class="features">
-    <div class="feature"><span class="feature-icon">⭐</span><h3>Nos terrasses préférées</h3><p>Section exclusive en haut de liste, visible par tous.</p></div>
-    <div class="feature"><span class="feature-icon">📸</span><h3>Photo de votre terrasse</h3><p>Une photo affichée directement dans la liste.</p></div>
-    <div class="feature"><span class="feature-icon">🍺</span><h3>Vos rendez-vous du moment</h3><p>Happy hours, brunchs, concerts ou soirées à thème : mettez en avant vos offres et événements à jour pour donner une raison de venir et de revenir.</p></div>
-    <div class="feature"><span class="feature-icon">📞</span><h3>Appel & itinéraire</h3><p>Un bouton pour appeler ou naviguer en un tap.</p></div>
+    <div class="feature"><span class="feature-icon">⭐</span><h3>Nos terrasses préférées</h3><p>Une section exclusive en tête de liste, visible par tous les utilisateurs.</p></div>
+    <div class="feature"><span class="feature-icon">📸</span><h3>Photo de votre terrasse</h3><p>Une photo de votre établissement affichée directement dans la liste.</p></div>
+    <div class="feature"><span class="feature-icon">🍺</span><h3>Vos rendez-vous du moment</h3><p>Happy hours, brunchs, concerts, soirées à thème : valorisez vos offres et événements. Transmettez-nous vos nouveautés pour actualiser votre fiche.</p></div>
+    <div class="feature"><span class="feature-icon">📞</span><h3>Appel & itinéraire</h3><p>Un accès direct pour vous appeler ou trouver l’itinéraire vers votre établissement.</p></div>
     <div class="feature"><span class="feature-icon">🔝</span><h3>Mise en avant</h3><p>Votre établissement en tête de liste pour vous faire découvrir par des clients qui cherchent où s’installer.</p></div>
     <div class="feature"><span class="feature-icon">📊</span><h3>Statistiques</h3><p>Statistiques de vues et de clics sur votre fiche disponibles sur demande.</p></div>
     <div class="feature"><span class="feature-icon">📅</span><h3>Réservation directe</h3><p>Les clients peuvent réserver directement depuis votre fiche dans l’app. De la découverte de votre restaurant à la réservation, le parcours est simple.</p></div>
@@ -179,15 +180,15 @@
     <p>Un déjeuner au soleil, un verre à l’ombre ou une table au frais quand il fait très chaud : les envies changent avec la météo. Face aux fortes chaleurs et à un climat qui évolue, mettez en valeur vos espaces au soleil, à l’ombre ou climatisés, selon ce que votre établissement propose. Les clients trouvent le cadre qui leur convient et peuvent réserver directement depuis votre fiche.</p>
   </div>
   <div class="benefit-callout" style="background:#ffffff;border-color:#E5E5EA;">
-    <h3>Plus de visibilité. Plus d’occasions d’accueillir des clients.</h3>
-    <p>Avec plus de 15 000 téléchargements, l’app vous permet de vous faire découvrir par de nouvelles personnes. Une fiche attractive et une réservation accessible depuis l’app facilitent le passage de « ça me plaît » à « je réserve ».</p>
+    <h3>Plus de visibilité, plus de réservations.</h3>
+    <p>Avec plus de 15 000 téléchargements, l’application vous fait connaître auprès de nouveaux clients. Une fiche soignée et une réservation accessible en un geste facilitent le passage de l’envie à la réservation.</p>
   </div>
 </div>
 
 <div class="section" id="tarif">
-  <div class="section-tag">Tarif</div>
-  <h2>Simple et sans surprise</h2>
-  <p class="section-sub">La même offre, deux façons de payer. Choisissez la formule qui vous convient.</p>
+  <div class="section-tag">Tarifs</div>
+  <h2>Une tarification claire et transparente</h2>
+  <p class="section-sub">Une offre unique, deux options de paiement. Choisissez celle qui vous convient.</p>
   <div class="pricing-toggle">
     <div class="toggle-wrap">
       <button type="button" class="toggle-btn active" aria-pressed="true" onclick="setPricing('monthly')">Mensuel</button>
@@ -198,11 +199,11 @@
     <div class="pricing-card">
       <div class="price-monthly">
         <div class="pricing-price">19<span>,90€</span></div>
-        <div class="pricing-period">par mois · engagement initial d’un an<br>Renouvellement mensuel jusqu’à résiliation</div>
+        <div class="pricing-period">TTC par mois · engagement initial d’un an<br>Renouvellement mensuel jusqu’à résiliation</div>
       </div>
       <div class="price-annual">
         <div class="pricing-price">220<span>€</span></div>
-        <div class="pricing-period">paiement unique pour un an · soit 18,33€/mois<br>Sans renouvellement automatique</div><div class="saving">Économisez 18,80 € sur un an</div><div class="payment-note">Par rapport à 12 mensualités à 19,90 €</div>
+        <div class="pricing-period">TTC · paiement unique pour un an · soit 18,33 €/mois<br>Sans renouvellement automatique</div><div class="saving">Économisez 18,80 € sur un an</div><div class="payment-note">Par rapport à 12 mensualités à 19,90 €</div>
       </div>
       <ul class="pricing-list">
         <li>Section "Nos terrasses préférées" ⭐</li>
@@ -227,7 +228,7 @@
   <details><summary>Mon restaurant est déjà dans l’app : que change l’offre ?</summary><p>Votre fiche est mise en avant dans Nos terrasses préférées, avec une photo, vos offres du moment et un accès à la réservation. L’avant/après ci-dessus illustre ces possibilités.</p></details>
   <details><summary>Comment mettre à jour mes événements ?</summary><p>Envoyez-nous le nom de l’événement, sa date, ses horaires et les informations pratiques via notre compte Instagram. Nous échangeons avec vous sur la mise à jour de votre fiche.</p></details>
   <details><summary>Comment fonctionnent les deux formules ?</summary><p>La formule mensuelle coûte 19,90 € par mois avec un engagement initial d’un an. Le paiement via Qonto se renouvelle chaque mois jusqu’à résiliation : il ne s’arrête pas automatiquement après 12 mois. La formule annuelle coûte 220 € en une fois pour un an, sans renouvellement automatique.</p></details>
-  <details><summary>Les boutons permettent-ils déjà un paiement réel ?</summary><p>Oui. Les deux formules vous redirigent vers une page de paiement sécurisée via Qonto : 19,90 € par mois pour l’abonnement mensuel, ou 220 € en un seul paiement pour un an.</p></details>
+  <details><summary>Comment régler mon abonnement partenaire ?</summary><p>Les deux options de paiement vous redirigent vers une page de paiement sécurisée via Qonto : 19,90 € par mois pour l’abonnement mensuel, ou 220 € en un seul paiement pour un an.</p></details>
   <a class="pricing-cta" style="max-width:380px;text-align:center;margin:24px auto 0;" href="#tarif">Choisir ma formule partenaire →</a>
 </div>
 <footer>
