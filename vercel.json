@@ -1,0 +1,1 @@
+{"functions":{"api/subscribe.mjs":{"includeFiles":"conditions-partenaires-v1.txt"}},"headers":[{"source":"/(.*)","headers":[{"key":"X-Content-Type-Options","value":"nosniff"},{"key":"Referrer-Policy","value":"strict-origin-when-cross-origin"}]}]}
