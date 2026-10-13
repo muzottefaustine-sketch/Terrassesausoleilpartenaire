@@ -144,10 +144,10 @@
   </div>
   <figure class="press-video">
     <div class="press-player" id="press-player"><div>
-      <button type="button" id="load-press-video" aria-label="Charger la vidéo Sud Ouest sur YouTube">▶ Découvrir le reportage Sud Ouest</button>
+      <button type="button" id="load-press-video" aria-label="Charger la vidéo TV7 sur YouTube">▶ Découvrir le reportage TV7</button>
       <p>En cliquant, vous chargez le lecteur YouTube et acceptez sa connexion à ce service externe.</p>
     </div></div>
-    <figcaption class="press-caption"><strong>Repérer les terrasses au soleil, en temps réel.</strong><a href="https://www.youtube.com/watch?v=_OUganu-kqs" target="_blank" rel="noopener noreferrer">Voir la vidéo Sud Ouest sur YouTube ↗</a></figcaption>
+    <figcaption class="press-caption"><strong>Repérer les terrasses au soleil, en temps réel.</strong><a href="https://www.youtube.com/watch?v=_OUganu-kqs" target="_blank" rel="noopener noreferrer">Voir la vidéo TV7 sur YouTube ↗</a></figcaption>
   </figure>
 </section>
 
@@ -295,7 +295,7 @@ setPricing('monthly');
 document.getElementById('load-press-video').addEventListener('click', function () {
   const frame = document.createElement('iframe');
   frame.src = 'https://www.youtube-nocookie.com/embed/_OUganu-kqs?rel=0';
-  frame.title = 'Sud Ouest — Soleilenterrasse, les terrasses au soleil à Bordeaux';
+  frame.title = 'TV7 — Soleilenterrasse, les terrasses au soleil à Bordeaux';
   frame.allow = 'encrypted-media; picture-in-picture; fullscreen';
   frame.allowFullscreen = true;
   frame.referrerPolicy = 'strict-origin-when-cross-origin';
