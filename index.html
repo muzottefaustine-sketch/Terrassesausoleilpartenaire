@@ -101,15 +101,17 @@
     .press-media a span{font-size:11px;font-weight:500;color:#6C6C70}
     .press-media a:hover{border-color:#F5A623;background:#FFFBEE}
     .press-video{max-width:640px;margin:auto;border:1px solid #E5E5EA;border-radius:18px;overflow:hidden;background:#fff;text-align:left}
-    .press-player{aspect-ratio:16/9;background:linear-gradient(135deg,#fff6cd,#ffdf74);display:grid;place-items:center;padding:24px;text-align:center}
-    .press-player:has(iframe){padding:0;background:#111}
-    .press-player iframe{display:block;width:100%;height:100%;border:0}
-    .press-player button{font:inherit;font-weight:650;border:0;border-radius:30px;background:#1C1C1E;color:white;padding:15px 23px;cursor:pointer}
-    .press-player p{font-size:12px;color:#62542e;line-height:1.5;margin:14px auto 0;max-width:340px}
+    .press-player{aspect-ratio:16/9;background:#111;position:relative;overflow:hidden}
+    .press-player iframe{display:block;width:100%;height:100%;border:0;position:absolute;inset:0}
+    .press-player button{display:block;width:100%;height:100%;position:absolute;inset:0;padding:0;border:0;background:#111;cursor:pointer}
+    .press-player button img{display:block;width:100%;height:100%;object-fit:cover}
+    .press-play-icon{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);display:grid;place-items:center;width:72px;height:50px;border-radius:14px;background:#f03;color:white;font-size:26px;box-shadow:0 3px 16px #0005;padding-left:3px}
+    .press-player button:hover .press-play-icon{background:#c90029}
+    .press-caption .press-consent{font-size:11px;color:#6C6C70;line-height:1.5;margin:9px 0 0}
     .press-caption{padding:18px 22px}
     .press-caption strong{display:block;font-size:16px;margin-bottom:7px}
     .press-caption a{font-size:12px;color:#785800;line-height:1.8}
-    @media(max-width:600px){.press-media{grid-template-columns:repeat(2,minmax(0,1fr))}.press-player{padding:18px}.press-player p{font-size:11px}}
+    @media(max-width:600px){.press-media{grid-template-columns:repeat(2,minmax(0,1fr))}.press-play-icon{width:64px;height:46px;font-size:23px}}
   </style>
 </head>
 <body>
@@ -143,11 +145,13 @@
     <a href="https://www.bougerabordeaux.com/actu/une-bordelaise-lance-une-appli-pour-trouver-les-terrasses-au-soleil-en-temps-reel/" target="_blank" rel="noopener noreferrer">Bouger à Bordeaux<span>Lire l’article ↗</span></a>
   </div>
   <figure class="press-video">
-    <div class="press-player" id="press-player"><div>
-      <button type="button" id="load-press-video" aria-label="Charger la vidéo TV7 sur YouTube">▶ Découvrir le reportage TV7</button>
-      <p>En cliquant, vous chargez le lecteur YouTube et acceptez sa connexion à ce service externe.</p>
-    </div></div>
-    <figcaption class="press-caption"><strong>Repérer les terrasses au soleil, en temps réel.</strong><a href="https://www.youtube.com/watch?v=_OUganu-kqs" target="_blank" rel="noopener noreferrer">Voir la vidéo TV7 sur YouTube ↗</a></figcaption>
+    <div class="press-player" id="press-player">
+      <button type="button" id="load-press-video" aria-label="Lire le reportage TV7 sur YouTube" aria-describedby="press-consent">
+        <img src="https://i.ytimg.com/vi/_OUganu-kqs/hqdefault.jpg" alt="Faustine présente Soleilenterrasse dans le reportage TV7" width="480" height="360" loading="lazy" referrerpolicy="no-referrer">
+        <span class="press-play-icon" aria-hidden="true">▶</span>
+      </button>
+    </div>
+    <figcaption class="press-caption"><strong>Repérer les terrasses au soleil, en temps réel.</strong><a href="https://www.youtube.com/watch?v=_OUganu-kqs" target="_blank" rel="noopener noreferrer">Voir la vidéo TV7 sur YouTube ↗</a><p class="press-consent" id="press-consent">En lançant la vidéo, vous chargez le lecteur YouTube.</p></figcaption>
   </figure>
 </section>
 
@@ -294,9 +298,9 @@ setPricing('monthly');
 <script>
 document.getElementById('load-press-video').addEventListener('click', function () {
   const frame = document.createElement('iframe');
-  frame.src = 'https://www.youtube-nocookie.com/embed/_OUganu-kqs?rel=0';
+  frame.src = 'https://www.youtube-nocookie.com/embed/_OUganu-kqs?rel=0&autoplay=1&playsinline=1';
   frame.title = 'TV7 — Soleilenterrasse, les terrasses au soleil à Bordeaux';
-  frame.allow = 'encrypted-media; picture-in-picture; fullscreen';
+  frame.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
   frame.allowFullscreen = true;
   frame.referrerPolicy = 'strict-origin-when-cross-origin';
   document.getElementById('press-player').replaceChildren(frame);
