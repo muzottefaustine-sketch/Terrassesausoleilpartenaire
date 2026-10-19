@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Soleilenterrasse · Partenaires</title>
   <meta property="og:title" content="Votre prochaine réservation commence ici. ☀️">
-  <meta property="og:description" content="Faites découvrir votre restaurant et facilitez la réservation directement dans l’app. Soleil, ombre ou climatisation : mettez en avant vos atouts. Plus de 15 000 téléchargements. Offre partenaire à 220 € pour un an.">
+  <meta property="og:description" content="Faites découvrir votre restaurant et facilitez la réservation directement dans l’app. Soleil, ombre ou climatisation : mettez en avant vos atouts. Plus de 20 000 téléchargements. Offre partenaire à 220 € pour un an.">
   <meta property="og:image" content="https://terrassesausoleilpartenaire.vercel.app/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -112,24 +112,81 @@
     .press-caption strong{display:block;font-size:16px;margin-bottom:7px}
     .press-caption a{font-size:12px;color:#785800;line-height:1.8}
     @media(max-width:600px){.press-media{grid-template-columns:repeat(2,minmax(0,1fr))}.press-play-icon{width:64px;height:46px;font-size:23px}}
+
+    /* Présentation partenaires */
+    body { background:#f5f5f7; color:#1d1d1f; -webkit-font-smoothing:antialiased; }
+    .hero { padding:88px 24px 70px; text-align:center; background:#fff; }
+    .hero-eyebrow { font-size:11px; font-weight:600; letter-spacing:2px; color:#6e6e73; margin-bottom:26px; }
+    .hero h1 { font-size:clamp(38px,6.4vw,72px); line-height:1.06; letter-spacing:-.05em; font-weight:650; max-width:850px; margin:0 auto 26px; }
+    .hero h1 span { color:#a97508; }
+    .hero-description { font-size:clamp(17px,2vw,21px); line-height:1.55; letter-spacing:-.018em; color:#6e6e73; max-width:590px; margin:0 auto 32px; }
+    .hero-cta { display:inline-flex; align-items:center; gap:18px; background:#1d1d1f; color:#fff; padding:16px 27px; border-radius:999px; text-decoration:none; font-size:15px; font-weight:500; }
+    .hero-price { color:#6e6e73; font-size:12px; line-height:1.6; margin:16px auto 0; max-width:380px; }
+    .stats { background:#fff; border:0; padding:28px 24px 52px; gap:24px; }
+    .stat { padding:8px; }
+    .stat-num { font-size:clamp(24px,3vw,32px); font-weight:650; letter-spacing:-.045em; white-space:nowrap; }
+    .stat-label { text-transform:none; letter-spacing:0; font-size:12px; line-height:1.5; color:#6e6e73; margin-top:9px; }
+    .section { max-width:960px; padding:76px 28px; }
+    .section h2 { font-size:clamp(28px,4vw,42px); letter-spacing:-.035em; line-height:1.12; }
+    .section-tag { color:#88600a; letter-spacing:1.2px; margin-bottom:13px; }
+    .section-sub { font-size:17px; max-width:570px; line-height:1.6; }
+    .features { gap:16px; grid-template-columns:repeat(2,minmax(0,1fr)); }
+    .feature { padding:28px; border:0; border-radius:24px; }
+    .feature h3 { font-size:18px; letter-spacing:-.02em; margin-bottom:9px; }
+    .feature p { font-size:14px; line-height:1.65; }
+    .feature-icon { font-size:21px; margin-bottom:17px; }
+    .compare { gap:20px; }
+    .compare-card { border-radius:24px; }
+    .compare-body { padding:22px; }
+    .benefit-callout { border:0; border-radius:24px; background:#fff; padding:32px; }
+    .benefit-callout h3 { font-size:24px; letter-spacing:-.025em; }
+    .benefit-callout p { font-size:16px; }
+    .press-media { gap:14px; }
+    .press-media a { border:0; border-radius:18px; min-height:96px; }
+    .press-video { border:0; border-radius:24px; }
+    #tarif > .section-tag, #tarif > h2, #tarif > .section-sub { text-align:center; }
+    #tarif > .section-sub { margin:16px auto 32px; }
+    .pricing-card { border:0; max-width:460px; border-radius:30px; padding:40px; box-shadow:0 12px 40px #1d1d1f06; }
+    .pricing-price { font-size:68px; letter-spacing:-.05em; font-weight:650; }
+    .pricing-price span { font-size:30px; color:#1d1d1f; letter-spacing:-.02em; }
+    .pricing-period { margin-top:14px; line-height:1.7; }
+    .pricing-list li { font-size:14px; padding:10px 0; border-color:#f2f2f4; }
+    .pricing-list li::before { color:#88600a; }
+    .pricing-cta { background:#1d1d1f; color:#fff; padding:17px 24px; font-weight:500; }
+    #contrat { font-size:13px; line-height:1.65; }
+    #contrat a { color:#775700; }
+    .sep { max-width:904px; background:#e5e5e7; }
+    details { border:0; border-radius:18px; padding:22px 24px; }
+    summary { font-size:15px; }
+    footer { line-height:1.9; color:#6e6e73; }
+    @media(max-width:680px) {
+      .hero { padding:60px 22px 38px; }
+      .hero-eyebrow { font-size:10px; letter-spacing:1.3px; }
+      .hero h1 { font-size:clamp(35px,9vw,50px); }
+      .stats { grid-template-columns:repeat(2,minmax(0,1fr)); gap:26px 12px; padding:22px 20px 38px; }
+      .section { padding:52px 20px; }
+      .features { grid-template-columns:1fr; }
+      .feature { padding:26px; }
+      .pricing-card { padding:32px 24px; }
+      .benefit-callout { padding:26px; }
+    }
+    @media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } * { transition:none !important; } }
   </style>
 </head>
 <body>
 
-<div style="padding:72px 24px 64px; text-align:center; background-color:#ffffff; border-bottom:1px solid #E5E5EA; width:100%;">
-  <div style="font-size:48px; margin-bottom:18px;">☀️</div>
-  <h1 style="font-size:clamp(28px,5vw,48px); font-weight:700; line-height:1.15; max-width:520px; margin:0 auto 14px; text-align:center;">Votre prochaine réservation<br><span style="color:#F5A623;">commence ici.</span></h1>
-  <p style="font-size:17px; color:#6C6C70; max-width:400px; margin:0 auto 32px; line-height:1.6; text-align:center;">Valorisez votre établissement auprès de nouveaux clients. Rejoignez « Nos terrasses préférées » : mettez en avant votre terrasse, partagez vos événements et permettez aux clients de réserver directement depuis l’application.</p>
-  <div style="text-align:center;">
-    <a href="#tarif" style="display:inline-block; background:#1C1C1E; color:#ffffff; font-weight:600; font-size:15px; padding:14px 32px; border-radius:50px; text-decoration:none;">Référencer mon établissement →</a>
-  </div>
-  <p style="margin-top:12px; font-size:13px; color:#6C6C70;">220 € pour un an · Découvrez nos formules partenaires.</p>
-</div>
+<header class="hero">
+  <p class="hero-eyebrow">SOLEILENTERRASSE · PARTENAIRES</p>
+  <h1>Votre terrasse.<br><span>Leur prochaine adresse.</span></h1>
+  <p class="hero-description">Faites découvrir votre établissement au bon moment. Une photo qui donne envie, vos événements à jour et la réservation directement depuis l’application.</p>
+  <a class="hero-cta" href="#tarif">Référencer mon établissement <span aria-hidden="true">→</span></a>
+  <p class="hero-price">220 € pour un an. Une seule offre, deux options de paiement.</p>
+</header>
 
 <div class="stats">
-  <div class="stat"><div class="stat-num">15 000+</div><div class="stat-label">Téléchargements</div></div>
+  <div class="stat"><div class="stat-num">20 000+</div><div class="stat-label">Téléchargements à ce jour</div></div>
   <div class="stat"><div class="stat-num">Top 17</div><div class="stat-label">Meilleur classement App Store<br>Catégorie Navigation</div></div>
-  <div class="stat"><div class="stat-num">Bordeaux</div></div>
+  <div class="stat"><div class="stat-num">Bordeaux</div><div class="stat-label">Notre ville, vos terrasses</div></div>
   <div class="stat"><div class="stat-num">Ombres 3D</div><div class="stat-label">En temps réel</div></div>
 </div>
 
@@ -222,7 +279,7 @@
   </div>
   <div class="benefit-callout" style="background:#ffffff;border-color:#E5E5EA;">
     <h3>Plus de visibilité, plus de réservations.</h3>
-    <p>Avec plus de 15 000 téléchargements, l’application vous fait connaître auprès de nouveaux clients. Une fiche soignée et une réservation accessible en un geste facilitent le passage de l’envie à la réservation.</p>
+    <p>Déjà plus de 20 000 téléchargements. Faites découvrir votre terrasse à celles et ceux qui cherchent leur prochaine adresse. Votre photo, vos actualités et un accès direct à la réservation : l’essentiel pour leur donner envie de venir.</p>
   </div>
 </div>
 
