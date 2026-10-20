@@ -313,10 +313,10 @@
         <li>Mise en avant dans la liste</li>
         <li>Statistiques disponibles sur demande</li>
       </ul>
-      <div id="contrat" style="text-align:left;margin:20px 0;padding:18px;background:#fff8dd;border-radius:14px"><strong>Votre partenariat, simplement</strong><p>Indiquez le nom du restaurant et votre e-mail, acceptez les conditions et passez au paiement sécurisé Qonto. Votre fiche s’active automatiquement après confirmation du paiement.</p><a href="conditions-partenaires.html">Lire les conditions de souscription →</a></div>
-      <a id="payment-cta" class="pricing-cta" href="souscription.html?formule=annual">Choisir cette formule →</a>
+      <div id="contrat" style="text-align:left;margin:20px 0;padding:18px;background:#fff8dd;border-radius:14px"><strong>Votre partenariat, simplement</strong><p>Choisissez votre option et payez directement sur la page sécurisée Qonto. Votre fiche s’active automatiquement après confirmation du paiement.</p><a href="conditions-partenaires.html">Lire les conditions de souscription →</a></div>
+      <a id="payment-cta" class="pricing-cta" href="https://pay.qonto.com/payment-links/01a11bcf-35b4-7ded-80a3-7a7bdfd736f0?resource_id=01a11bcf-35b6-74ca-a4e5-1aea1b4c2fb6">Payer 220 € →</a>
       <p id="payment-status" class="payment-note" role="status">Annuel : 220 € en une fois pour 12 mois, sans renouvellement automatique.</p>
-      <p class="payment-note">TVA non applicable</p><p class="payment-note">Aucun frais de mise en service. Après un démarchage sur place, nous vérifions les formalités avant toute commande et tout paiement.</p>
+      <p class="payment-note">TVA non applicable</p><p class="payment-note">Aucun frais de mise en service. Paiement sécurisé via Qonto.</p>
     </div>
   </div>
 </div>
@@ -328,12 +328,12 @@
   <details><summary>Mon restaurant est déjà dans l’app : que change l’offre ?</summary><p>Votre fiche est mise en avant dans Nos terrasses préférées, avec une photo, vos offres du moment et un accès à la réservation. L’avant/après ci-dessus illustre ces possibilités.</p></details>
   <details><summary>Comment mettre à jour mes événements ?</summary><p>Envoyez-nous le nom de l’événement, sa date, ses horaires et les informations pratiques à contact@soleilenterrasse.com. Nous échangeons avec vous sur la mise à jour de votre fiche.</p></details>
   <details><summary>Comment fonctionnent les deux formules ?</summary><p>La formule annuelle coûte 220 € en une fois pour un an, sans renouvellement automatique. La formule mensuelle coûte 19,90 € par mois avec un engagement minimum de 6 mois, soit 119,40 €. Le paiement via Qonto se renouvelle chaque mois jusqu’à résiliation : il ne s’arrête pas automatiquement après 6 mois.</p></details>
-  <details><summary>Comment régler mon abonnement partenaire ?</summary><p>Deux informations suffisent avant le paiement : le nom du restaurant et votre e-mail. Pour une souscription à distance, acceptez les conditions puis passez au paiement Qonto. Votre confirmation est téléchargeable. Les demandes issues d’un démarchage sur place sont vérifiées séparément avant toute commande. Soleilenterrasse vous adresse une facture pour chaque paiement. Votre fiche partenaire s’active automatiquement après confirmation du paiement, sans photo ni document à envoyer pour démarrer, sous réserve des règles applicables au démarchage.</p></details>
+  <details><summary>Comment régler mon abonnement partenaire ?</summary><p>Cliquez sur le bouton de votre formule pour accéder directement au paiement sécurisé Qonto. Aucun formulaire préalable à remplir sur ce site. Soleilenterrasse vous adresse ensuite votre facture. Votre fiche partenaire s’active après confirmation du paiement, sans photo à envoyer pour démarrer.</p></details>
   <a class="pricing-cta" style="max-width:380px;text-align:center;margin:24px auto 0;" href="#tarif">Choisir ma formule partenaire →</a>
 </div>
 <footer>
   <strong>Soleilenterrasse</strong> · Bordeaux · <a href="https://soleil-bordeaux.vercel.app" style="color:#AEAEB2;text-decoration:none;">Voir l'app</a>
-<p>Faustine Muzotte EI · SIRET 921 795 969 00028<br>36 quai Richelieu, 33000 Bordeaux · 07 82 21 56 94<br><a href="mailto:contact@soleilenterrasse.com">contact@soleilenterrasse.com</a> · <a href="conditions-partenaires.html">Conditions de souscription</a> · <a href="contrat-partenaires.html">Contrat à signer</a></p></footer>
+<p>Faustine Muzotte EI · SIRET 921 795 969 00028<br>36 quai Richelieu, 33000 Bordeaux · 07 82 21 56 94<br><a href="mailto:contact@soleilenterrasse.com">contact@soleilenterrasse.com</a> · <a href="conditions-partenaires.html">Conditions de souscription</a></p></footer>
 
 <script>
 function setPricing(mode) {
@@ -346,7 +346,8 @@ function setPricing(mode) {
   document.querySelector('.price-monthly').style.display = mode === 'monthly' ? 'block' : 'none';
   document.querySelector('.price-annual').style.display = mode === 'annual' ? 'block' : 'none';
   document.getElementById('payment-status').textContent = mode === 'monthly' ? 'Mensuel : 19,90 €/mois, 6 mois minimum (119,40 €), puis résiliation à la fin de la période mensuelle en cours.' : 'Annuel : 220 € en une fois pour 12 mois, sans renouvellement automatique.';
-  document.getElementById('payment-cta').href = 'souscription.html?formule=' + mode;
+  document.getElementById('payment-cta').href = {"monthly": "https://pay.qonto.com/payment-links/01a11bcb-f770-7a6a-90ad-5aea27584771?resource_id=01a11bcb-f771-796c-a38a-17e5011146a1", "annual": "https://pay.qonto.com/payment-links/01a11bcf-35b4-7ded-80a3-7a7bdfd736f0?resource_id=01a11bcf-35b6-74ca-a4e5-1aea1b4c2fb6"}[mode];
+  document.getElementById('payment-cta').textContent = mode === 'monthly' ? 'Payer 19,90 €/mois →' : 'Payer 220 € →';
 }
 setPricing('annual');
 </script>
