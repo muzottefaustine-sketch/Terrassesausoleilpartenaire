@@ -21,7 +21,7 @@ export default async function handler(req,res){
   const raw=typeof req.body==='string'?req.body:JSON.stringify(req.body);if(!raw||Buffer.byteLength(raw)>6000)return res.status(413).json({error:'Demande trop volumineuse.'});
   const input=JSON.parse(raw);
   if(!/^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(input?.requestId||''))throw new InputError('Référence de demande invalide. Rechargez la page.');
-  const terms=await readFile(new URL('../conditions-partenaires-v1.txt',import.meta.url),'utf8');
+  const terms=await readFile(new URL('../conditions-partenaires-v2.txt',import.meta.url),'utf8');
   const result=await recordOrder(input,{terms,testMode:preview,id:()=>input.requestId,save:async record=>{
    const path=`${preview?'tests':'accords'}/${record.id}.json`;
    const options={access:'private',token:process.env.BLOB_READ_WRITE_TOKEN};
