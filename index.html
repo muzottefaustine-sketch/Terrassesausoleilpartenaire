@@ -132,10 +132,17 @@
     .press-caption a{font-size:12px;color:#785800;line-height:1.8}
     @media(max-width:600px){.press-media{grid-template-columns:repeat(2,minmax(0,1fr))}.press-play-icon{width:64px;height:46px;font-size:23px}}
 
-    .brand-collaboration { max-width:640px; margin:24px auto 0; padding:28px 24px; border:1px solid #e8e2d5; border-radius:24px; background:#fffaf0; text-align:center; }
-    .brand-collaboration .section-tag { margin-bottom:12px; }
-    .brand-collaboration h3 { font-size:clamp(22px,4vw,30px); font-weight:650; letter-spacing:-.035em; line-height:1.25; }
-    .brand-collaboration p:last-child { margin-top:12px; color:#6e6e73; font-size:14px; line-height:1.6; }
+    .brand-collaboration { max-width:760px; margin:32px auto 0; padding:32px; border:1px solid #e8e2d5; border-radius:28px; background:#fffaf0; display:grid; grid-template-columns:1fr 250px; gap:32px; align-items:center; text-align:left; }
+    .brand-collaboration .section-tag { margin-bottom:16px; }
+    .brand-collaboration h3 { font-size:clamp(26px,4vw,36px); font-weight:650; letter-spacing:-.04em; line-height:1.15; }
+    .collaboration-copy > p:last-child { margin-top:18px; color:#6e6e73; font-size:16px; line-height:1.6; }
+    .collaboration-film { position:relative; aspect-ratio:9/16; border-radius:20px; overflow:hidden; background:#191714; }
+    .collaboration-film video { display:block; width:100%; height:100%; object-fit:contain; }
+    .collaboration-play { position:absolute; inset:0; border:0; background:transparent; color:white; cursor:pointer; display:flex; flex-direction:column; justify-content:flex-end; align-items:center; gap:10px; padding:0 16px 24px; background:linear-gradient(transparent 65%,#0009); }
+    .collaboration-play[hidden] { display:none; }
+    .collaboration-play span:first-child { display:grid; place-items:center; width:52px; height:52px; border:1px solid #ffffff99; border-radius:50%; background:#ffffffed; color:#1d1d1f; font-size:19px; padding-left:3px; }
+    .collaboration-play span:last-child { font-size:13px; font-weight:600; }
+    @media(max-width:600px) { .brand-collaboration { grid-template-columns:1fr; gap:24px; padding:26px 22px; text-align:center; } .collaboration-film { width:min(100%,280px); margin:auto; } }
     /* Présentation partenaires */
     body { background:#f5f5f7; color:#1d1d1f; -webkit-font-smoothing:antialiased; }
     .hero { padding:88px 24px 70px; text-align:center; background:#fff; }
@@ -236,9 +243,18 @@
     <figcaption class="press-caption"><strong>Repérer les terrasses au soleil, en temps réel.</strong><a href="https://www.youtube.com/watch?v=_OUganu-kqs" target="_blank" rel="noopener noreferrer">Voir la vidéo TV7 sur YouTube ↗</a><p class="press-consent" id="press-consent">En lançant la vidéo, vous chargez le lecteur YouTube.</p></figcaption>
   </figure>
   <aside class="brand-collaboration" aria-labelledby="cacolac-title">
-    <p class="section-tag">Une collaboration à découvrir</p>
-    <h3 id="cacolac-title">Soleilenterrasse × Cacolac</h3>
-    <p>Soleilenterrasse a également collaboré avec Cacolac.</p>
+    <div class="collaboration-copy">
+      <p class="section-tag">Collaboration</p>
+      <h3 id="cacolac-title">Soleilenterrasse<br>× Cacolac</h3>
+      <p>Notre collaboration en images.<br>Un moment en terrasse, à découvrir ensemble.</p>
+    </div>
+    <div class="collaboration-film">
+      <video id="cacolac-video" controls playsinline preload="none" poster="cacolac-poster.jpg" aria-label="Vidéo de la collaboration Soleilenterrasse et Cacolac" width="720" height="1280">
+        <source src="cacolac-collaboration.mp4" type="video/mp4">
+        <a href="cacolac-collaboration.mp4">Voir la vidéo de la collaboration Cacolac</a>
+      </video>
+      <button id="cacolac-play" class="collaboration-play" type="button" aria-label="Lire la vidéo Soleilenterrasse × Cacolac" hidden><span aria-hidden="true">▶</span><span>Découvrir la collaboration · 28 s</span></button>
+    </div>
   </aside>
 </section>
 
@@ -426,6 +442,23 @@ document.getElementById('load-press-video').addEventListener('click', function (
   document.getElementById('press-player').replaceChildren(frame);
   frame.focus();
 });
+</script>
+<script>
+(function () {
+  const video = document.getElementById('cacolac-video');
+  const button = document.getElementById('cacolac-play');
+  video.controls = false;
+  button.hidden = false;
+  button.addEventListener('click', function () {
+    button.hidden = true;
+    video.controls = true;
+    video.play().catch(function () { video.controls = true; });
+  });
+  video.addEventListener('ended', function () {
+    video.controls = false;
+    button.hidden = false;
+  });
+})();
 </script>
 </body>
 </html>
