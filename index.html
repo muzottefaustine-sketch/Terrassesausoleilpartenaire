@@ -77,26 +77,48 @@
     .compare-body { padding: 14px; }
     .list-label { font-size: 10px; font-weight: 600; color: #AEAEB2; text-transform: uppercase; letter-spacing: 0.7px; margin-bottom: 8px; }
     .list-label.gold { color: #F5A623; }
-    .mock-row { display: flex; align-items: center; gap: 10px; padding: 9px 10px; border-radius: 11px; border: 1px solid #E5E5EA; margin-bottom: 7px; }
-    .mock-row.highlighted { border-color: rgba(245,166,35,0.4); background: #FFFBEE; }
-    .mock-dot { width: 30px; height: 30px; border-radius: 8px; background: #FFFBEE; display: flex; align-items: center; justify-content: center; font-size: 13px; flex-shrink: 0; }
-    .mock-dot.gold { background: #FFD600; }
-    .mock-row-name { font-size: 12px; font-weight: 600; display: flex; align-items: center; gap: 4px; flex-wrap: wrap; }
-    .mock-row-sub { font-size: 10px; color: #AEAEB2; margin-top: 1px; }
-    .mock-pill { font-size: 8px; font-weight: 700; background: #FFD600; color: #1C1C1E; padding: 2px 6px; border-radius: 20px; }
-    .mock-photo-clean { width: 100%; height: 96px; border-radius: 9px; margin: 8px 0; background: linear-gradient(150deg, #FFF8DC 0%, #FFE566 100%); display: flex; align-items: center; justify-content: center; }
-    .mock-photo-clean span { font-size: 11px; color: rgba(120,90,0,0.4); font-weight: 500; }
-    .mock-happy { font-size: 10px; font-weight: 500; color: #F5A623; background: #FFFBEE; border-radius: 7px; padding: 6px 9px; margin-bottom: 7px; }
-    .mock-btns { display: flex; gap: 5px; }
-    .mock-btn-s { flex: 1; padding: 6px; border-radius: 7px; font-size: 10px; font-weight: 600; text-align: center; border: none; }
-    .mock-btn-s.dark { background: #1C1C1E; color: #ffffff; }
-    .mock-btn-s.light { background: #FFFBEE; color: #F5A623; }
-    .restaurant-photo { margin: 12px 0; }
-    .restaurant-photo img { display: block; width: 100%; height: 220px; object-fit: cover; border-radius: 10px; }
-    .restaurant-photo figcaption { font-size: 10px; color: #6C6C70; margin-top: 6px; }
-    .comfort-tags { display: flex; flex-wrap: wrap; gap: 5px; margin: 10px 0; }
-    .comfort-tags span { background: #F2F2F7; color: #454549; font-size: 10px; padding: 6px 8px; border-radius: 20px; }
-    .mock-reserve { background: #FFD600; color: #1C1C1E; text-align: center; border-radius: 8px; padding: 11px; margin-bottom: 7px; font-size: 12px; font-weight: 700; }
+
+    /* Maquette de l’appli : design actuel (Notre sélection, fiche iOS) */
+    .app-screen { --ink:#000; --ink-2:rgba(60,60,67,.72); --line:rgba(60,60,67,.14); --fill:rgba(118,118,128,.12); --sun:#FFB800; --sun-soft:#FFF2C2; --sun-ink:#5C4300;
+      background:#fff; border:1px solid #E5E5EA; border-radius:24px; padding:14px 0 12px; overflow:hidden; color:var(--ink);
+      font-family:-apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif; letter-spacing:-.01em; }
+    .app-label { font-size:12px; text-transform:uppercase; letter-spacing:.02em; color:var(--ink-2); padding:4px 14px 8px; }
+    .app-label.divider { padding-top:14px; padding-bottom:6px; margin-left:14px; padding-left:0; border-bottom:.5px solid var(--line); }
+    .app-row { position:relative; margin-left:14px; padding:10px 36px 10px 0; border-bottom:.5px solid var(--line); }
+    .app-row:last-child { border-bottom:0; }
+    .app-row::after { content:''; position:absolute; right:12px; top:50%; width:13px; height:13px; margin-top:-6.5px; background:rgba(60,60,67,.3);
+      -webkit-mask:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%221.8%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M9%205l7%207-7%207%22/%3E%3C/svg%3E") center/contain no-repeat; mask:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%221.8%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M9%205l7%207-7%207%22/%3E%3C/svg%3E") center/contain no-repeat; }
+    .app-row-name { font-size:15px; line-height:1.3; }
+    .app-row-sub { font-size:13px; color:var(--ink-2); margin-top:1px; }
+    .app-sel-scroll { display:flex; gap:10px; padding:2px 14px 18px; margin-bottom:-6px; overflow:hidden; }
+    .app-sel-card { position:relative; flex:0 0 84%; height:184px; border-radius:20px; overflow:hidden; background:linear-gradient(160deg,#FFE9A8,#F2F3F6);
+      box-shadow:0 1px 2px rgba(0,0,0,.08), 0 10px 24px rgba(0,0,0,.14); }
+    .app-sel-card img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+    .app-sel-card::after { content:''; position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,.68) 0%, rgba(0,0,0,.30) 40%, rgba(0,0,0,0) 66%); }
+    .app-sel-card::before { content:'★'; position:absolute; top:11px; left:11px; z-index:2; width:28px; height:28px; border-radius:50%; background:var(--sun); color:#000;
+      display:grid; place-items:center; font-size:15px; line-height:1; box-shadow:0 2px 8px rgba(0,0,0,.25); }
+    .app-sel-card.ghost::after { background:linear-gradient(to top, rgba(0,0,0,.18), rgba(0,0,0,0) 60%); }
+    .app-sel-info { position:absolute; left:0; right:0; bottom:0; z-index:1; padding:12px 14px; color:#fff; }
+    .app-sel-name { font-size:20px; font-weight:700; letter-spacing:-.02em; line-height:1.15; text-shadow:0 1px 8px rgba(0,0,0,.25); }
+    .app-sel-sub { font-size:13px; color:rgba(255,255,255,.85); margin-top:2px; }
+    .app-sel-happy { display:inline-block; margin-top:7px; font-size:12px; font-weight:500; padding:4px 9px; border-radius:8px; background:rgba(255,255,255,.22);
+      -webkit-backdrop-filter:blur(10px); backdrop-filter:blur(10px); }
+    .app-sheet { margin:12px 14px 0; padding-top:14px; border-top:.5px solid var(--line); }
+    .app-badge { display:inline-block; font-size:12px; font-weight:600; color:var(--sun-ink); background:var(--sun-soft); border-radius:6px; padding:3px 8px; }
+    .app-badge::before { content:'★'; margin-right:5px; color:#E09A00; }
+    .app-sheet-name { font-size:25px; font-weight:700; letter-spacing:-.02em; line-height:1.15; margin:8px 0 3px; }
+    .app-sheet-sub { font-size:14px; color:var(--ink-2); }
+    .app-tags { display:flex; flex-wrap:wrap; gap:6px; margin:12px 0; }
+    .app-tags span { background:var(--fill); font-size:12px; font-weight:500; border-radius:8px; padding:5px 9px; }
+    .app-tags span.event { background:var(--sun-soft); color:var(--sun-ink); }
+    .app-actions { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; }
+    .app-action { display:flex; flex-direction:column; align-items:center; gap:5px; min-height:60px; justify-content:center; padding:9px 4px 8px; border-radius:13px;
+      background:var(--fill); font-size:12px; font-weight:500; }
+    .app-action.primary { background:var(--sun); }
+    .app-action::before { content:''; width:21px; height:21px; background:currentColor; -webkit-mask:var(--ic) center/contain no-repeat; mask:var(--ic) center/contain no-repeat; }
+    .app-action.reserve { --ic:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%221.8%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Crect%20x%3D%224%22%20y%3D%225.500%22%20width%3D%2216%22%20height%3D%2214.500%22%20rx%3D%223%22/%3E%3Cpath%20d%3D%22M4%2010h16M8.500%203.500v4M15.500%203.500v4%22/%3E%3C/svg%3E"); }
+    .app-action.tel { --ic:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%221.8%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M8%204H5.800A1.800%201.800%200%200%200%204%205.900C4.500%2013.700%2010.300%2019.500%2018.100%2020A1.800%201.800%200%200%200%2020%2018.200V16a1.200%201.200%200%200%200-.850-1.150l-3.100-1a1.200%201.200%200%200%200-1.250.330l-1.400%201.550a10.500%2010.500%200%200%201-5.130-5.130l1.550-1.400a1.200%201.200%200%200%200%20.330-1.250l-1-3.100A1.200%201.200%200%200%200%208%204z%22/%3E%3C/svg%3E"); }
+    .app-action.menu { --ic:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%221.8%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M7%203.500v6a2.500%202.500%200%200%200%205%200v-6M9.500%203.500v17M17%203.500c-1.800%201.800-2.500%204.200-2.500%207.500H17zm0%207.500v9.500%22/%3E%3C/svg%3E"); }
     .benefit-callout { background: #FFFBEE; border: 1px solid #F2DFAD; border-radius: 16px; padding: 24px; margin-top: 24px; }
     .benefit-callout h3 { font-size: 18px; margin-bottom: 8px; }
     .benefit-callout p { font-size: 14px; color: #6C6C70; line-height: 1.65; }
@@ -271,28 +293,33 @@
     <div class="compare-card free">
       <div class="compare-header">Avant · fiche gratuite</div>
       <div class="compare-body">
-        <div class="list-label">Résultats</div>
-        <div class="mock-row"><div class="mock-dot">☀️</div><div><div class="mock-row-name">La Pointe</div><div class="mock-row-sub">Restaurant · 10 rue Sicard, Bordeaux</div></div></div>
-        <div class="mock-row"><div class="mock-dot">☀️</div><div><div class="mock-row-name">Chez Marcel</div><div class="mock-row-sub">Restaurant · Rue Saint-James</div></div></div>
-        <div class="compare-note">Votre établissement est présent avec son nom, son type et son adresse.</div>
+        <div class="app-screen" role="img" aria-label="Liste de l’app : La Pointe apparaît parmi tous les lieux, avec son nom et son adresse.">
+          <div class="app-label">Tous les lieux</div>
+          <div class="app-row"><div class="app-row-name">La Pointe</div><div class="app-row-sub">Restaurant · 10 rue Sicard</div></div>
+          <div class="app-row"><div class="app-row-name">Chez Marcel</div><div class="app-row-sub">Restaurant · Rue Saint-James</div></div>
+          <div class="app-row"><div class="app-row-name">Le Petit Quai</div><div class="app-row-sub">Bar · Quai des Chartrons</div></div>
+        </div>
+        <div class="compare-note">Votre établissement est présent avec son nom, son type et son adresse, au milieu des autres lieux.</div>
       </div>
     </div>
     <div class="compare-card paid">
       <div class="compare-header">Après · offre partenaire ☀️</div>
       <div class="compare-body">
-        <div class="list-label gold">⭐ Nos terrasses préférées</div>
-        <div class="mock-row highlighted">
-          <div class="mock-dot gold">⭐</div>
-          <div><div class="mock-row-name">La Pointe <span class="mock-pill">⭐ Préférée</span></div><div class="mock-row-sub">Restaurant · 10 rue Sicard, Bordeaux</div></div>
+        <div class="app-screen" role="img" aria-label="Section Notre sélection de l’app : grande carte photo de La Pointe avec une étoile, puis sa fiche avec les boutons Réserver, Appeler et Menu.">
+          <div class="app-label">Notre sélection</div>
+          <div class="app-sel-scroll">
+            <div class="app-sel-card"><img src="https://www.lapointe-bordeaux.fr/wp-content/uploads/2022/10/la-pointe-le-restaurant-1.jpg" alt="" loading="lazy" onerror="this.remove()"><div class="app-sel-info"><div class="app-sel-name">La Pointe</div><div class="app-sel-sub">Bistrot iodé · Chartrons</div><span class="app-sel-happy">🍹 Votre offre du moment</span></div></div>
+            <div class="app-sel-card ghost" aria-hidden="true"></div>
+          </div>
+          <div class="app-sheet">
+            <span class="app-badge">Sélection Soleilenterrasse</span>
+            <div class="app-sheet-name">La Pointe</div>
+            <div class="app-sheet-sub">Bistrot iodé · 10 rue Sicard, Bordeaux</div>
+            <div class="app-tags"><span>☀️ Soleil</span><span>🌳 Ombre</span><span>❄️ Climatisation</span><span class="event">📅 Vos événements</span></div>
+            <div class="app-actions"><span class="app-action reserve primary">Réserver</span><span class="app-action tel">Appeler</span><span class="app-action menu">Menu</span></div>
+          </div>
         </div>
-        <figure class="restaurant-photo"><img src="https://www.lapointe-bordeaux.fr/wp-content/uploads/2022/10/la-pointe-le-restaurant-1.jpg" alt="Le restaurant La Pointe à Bordeaux" loading="lazy"><figcaption>La Pointe · Bordeaux — photo du restaurant</figcaption></figure>
-        <p class="compare-note">Exemples d’informations à renseigner selon votre établissement :</p><div class="comfort-tags"><span>☀️ Soleil</span><span>🌳 Ombre</span><span>❄️ Climatisation</span></div>
-        <div class="mock-happy">📅 Vos événements à venir</div><p class="compare-note" style="margin:0 0 10px;">Exemples : brunch dominical, concert, soirée à thème. Vos dates et offres sont mises à jour sur votre fiche.</p>
-        <div class="mock-reserve">📅 Réserver une table</div>
-        <div class="mock-btns">
-          <div class="mock-btn-s dark">📞 Appeler</div>
-          <div class="mock-btn-s light">🗺 Itinéraire</div>
-        </div>
+        <p class="compare-note">Votre photo en grand, en tête de liste dans « Notre sélection », puis une fiche complète. Les informations de confort, les offres et les événements sont des exemples à renseigner selon votre établissement.</p>
         <div class="compare-note" style="margin-top:9px;"><strong>Les clients découvrent votre établissement, choisissent leur cadre et réservent depuis l’application.</strong></div>
       </div>
     </div>
@@ -304,7 +331,7 @@
   <h2>L'offre partenaire</h2>
   <p class="section-sub">Visibilité accrue, réservation simplifiée, atouts mis en valeur : tout pour attirer de nouveaux clients.</p>
   <div class="features">
-    <div class="feature"><span class="feature-icon">⭐</span><h3>Nos terrasses préférées</h3><p>Une section exclusive en tête de liste, visible par tous les utilisateurs.</p></div>
+    <div class="feature"><span class="feature-icon">⭐</span><h3>Notre sélection</h3><p>Une section exclusive en tête de liste, avec votre photo en grand, visible par tous les utilisateurs.</p></div>
     <div class="feature"><span class="feature-icon">📸</span><h3>Photo de votre terrasse</h3><p>Une photo de votre établissement affichée directement dans la liste.</p></div>
     <div class="feature"><span class="feature-icon">🍺</span><h3>Vos rendez-vous du moment</h3><p>Happy hours, brunchs, concerts, soirées à thème : valorisez vos offres et événements. Transmettez-nous vos nouveautés pour actualiser votre fiche.</p></div>
     <div class="feature"><span class="feature-icon">📞</span><h3>Appel & itinéraire</h3><p>Un accès direct pour vous appeler ou trouver l’itinéraire vers votre établissement.</p></div>
@@ -349,7 +376,7 @@
         <div class="pricing-period">paiement unique pour un an · soit 18,33 €/mois<br>Sans renouvellement automatique</div><div class="saving">Économisez 18,80 € sur un an</div><div class="payment-note">Par rapport à 12 mensualités à 19,90 €</div>
       </div>
       <ul class="pricing-list">
-        <li>Section "Nos terrasses préférées" ⭐</li>
+        <li>Section « Notre sélection » ⭐</li>
         <li>Photo de votre terrasse</li>
         <li>Happy hours, offres et événements à jour</li>
         <li>Réservation directement depuis l’app</li>
@@ -385,7 +412,7 @@
 
 <div class="section" style="padding-top:0;">
   <h2>Les réponses avant de vous lancer</h2>
-  <details><summary>Mon restaurant est déjà dans l’app : que change l’offre ?</summary><p>Votre fiche est mise en avant dans Nos terrasses préférées, avec une photo, vos offres du moment et un accès à la réservation. L’avant/après ci-dessus illustre ces possibilités.</p></details>
+  <details><summary>Mon restaurant est déjà dans l’app : que change l’offre ?</summary><p>Votre fiche est mise en avant dans « Notre sélection », avec une photo, vos offres du moment et un accès à la réservation. L’avant/après ci-dessus illustre ces possibilités.</p></details>
   <details><summary>Comment mettre à jour mes événements ?</summary><p>Envoyez-nous le nom de l’événement, sa date, ses horaires et les informations pratiques à contact@soleilenterrasse.com. Nous échangeons avec vous sur la mise à jour de votre fiche.</p></details>
   <details><summary>Comment fonctionnent les deux formules ?</summary><p>La formule annuelle coûte 220 € en une fois pour un an, sans renouvellement automatique. La formule mensuelle coûte 19,90 € par mois avec un engagement minimum de 6 mois, soit 119,40 €. L’abonnement Stripe se renouvelle chaque mois jusqu’à résiliation : il ne s’arrête pas automatiquement après 6 mois.</p></details>
   <details><summary>Comment régler mon abonnement partenaire ?</summary><p>Pour la formule annuelle, réglez 220 € par carte, Apple Pay ou Google Pay via Stripe, ou par virement bancaire avec le RIB affiché sur cette page. Pour la formule mensuelle, utilisez l’abonnement mensuel sécurisé Stripe. Aucun formulaire préalable à remplir sur ce site. Vous recevez votre reçu par e-mail dès le paiement, puis votre facture. Votre fiche partenaire s’active après confirmation du paiement, sans photo à envoyer pour démarrer.</p></details>
